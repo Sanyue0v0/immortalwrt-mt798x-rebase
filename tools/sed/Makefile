@@ -36,7 +36,7 @@ HOST_CONFIGURE_VARS += \
 	ac_cv_header_selinux_selinux_h=no \
 
 define Host/Compile
-	+$(MAKE) $(HOST_JOBS) -C $(HOST_BUILD_DIR) SHELL="$(BASH)"
+	+$(MAKE) $(HOST_JOBS) -C $(HOST_BUILD_DIR) SHELL="$(BASH)" SUBDIRS='po .'
 endef
 
 define Host/Install
