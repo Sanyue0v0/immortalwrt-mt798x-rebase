@@ -299,8 +299,8 @@ define U-Boot/mt7981_cmcc_rax3000me-emmc-ddr3
   UBOOT_IMAGE:=u-boot.fip
   BL2_BOOTDEV:=emmc
   BL2_SOC:=mt7981
-  BL2_DDRTYPE:=ddr3-1866mhz
-  DEPENDS:=+trusted-firmware-a-mt7981-emmc-ddr3-1866mhz
+  BL2_DDRTYPE:=ddr3-1866
+  DEPENDS:=+trusted-firmware-a-mt7981-emmc-ddr3-1866
 endef
 
 define U-Boot/mt7981_cmcc_rax3000me-emmc-ddr4
@@ -323,8 +323,8 @@ define U-Boot/mt7981_cmcc_rax3000me-nand-ddr3
   UBOOT_IMAGE:=u-boot.fip
   BL2_BOOTDEV:=spim-nand
   BL2_SOC:=mt7981
-  BL2_DDRTYPE:=ddr3-1866mhz
-  DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ddr3-1866mhz
+  BL2_DDRTYPE:=ddr3-1866
+  DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ddr3-1866
 endef
 
 define U-Boot/mt7981_cmcc_rax3000me-nand-ddr4
@@ -347,8 +347,44 @@ define U-Boot/mt7981_comfast_cf-wr632ax
   UBOOT_IMAGE:=u-boot.fip
   BL2_BOOTDEV:=spim-nand
   BL2_SOC:=mt7981
+  BL2_DDRTYPE:=ddr3-1866
+  DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ddr3-1866
+endef
+
+define U-Boot/mt7981_creatlentem_clt-r30b1-ubi
+  NAME:=CreatLentem CLT-R30B1 (UBI)
+  BUILD_SUBTARGET:=filogic
+  BUILD_DEVICES:=creatlentem_clt-r30b1-ubi
+  UBOOT_CONFIG:=mt7981_creatlentem_clt-r30b1-ubi
+  UBOOT_IMAGE:=u-boot.fip
+  BL2_BOOTDEV:=spim-nand-ubi
+  BL2_SOC:=mt7981
+  BL2_DDRTYPE:=ddr3-1866
+  DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ubi-ddr3-1866
+endef
+
+define U-Boot/mt7981_cudy_m3000-v1
+  NAME:=Cudy M3000 v1/v2
+  BUILD_SUBTARGET:=filogic
+  BUILD_DEVICES:=cudy_m3000-v1-ubootmod
+  UBOOT_CONFIG:=mt7981_cudy_m3000-v1
+  UBOOT_IMAGE:=u-boot.fip
+  BL2_BOOTDEV:=cudy
+  BL2_SOC:=mt7981
   BL2_DDRTYPE:=ddr3
-  DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ddr3
+  DEPENDS:=+trusted-firmware-a-mt7981-cudy-ddr3
+endef
+
+define U-Boot/mt7981_cudy_m3000-v2-yt8821
+  NAME:=Cudy M3000 v2 with Motorcomm YT8821
+  BUILD_SUBTARGET:=filogic
+  BUILD_DEVICES:=cudy_m3000-v2-yt8821-ubootmod
+  UBOOT_CONFIG:=mt7981_cudy_m3000-v2-yt8821
+  UBOOT_IMAGE:=u-boot.fip
+  BL2_BOOTDEV:=cudy
+  BL2_SOC:=mt7981
+  BL2_DDRTYPE:=ddr3
+  DEPENDS:=+trusted-firmware-a-mt7981-cudy-ddr3
 endef
 
 define U-Boot/mt7981_cudy_tr3000-v1
@@ -542,8 +578,20 @@ define U-Boot/mt7981_livinet_zr-3020
   DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ddr3
 endef
 
+define U-Boot/mt7981_netis_eap930-v1
+  NAME:=netis EAP930 V1
+  BUILD_SUBTARGET:=filogic
+  BUILD_DEVICES:=netis_eap930-v1
+  UBOOT_CONFIG:=mt7981_netis_eap930-v1
+  UBOOT_IMAGE:=u-boot.fip
+  BL2_BOOTDEV:=spim-nand
+  BL2_SOC:=mt7981
+  BL2_DDRTYPE:=ddr3
+  DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ddr3
+endef
+
 define U-Boot/mt7981_netis_nx30v2
-  NAME:=Netis NX30V2
+  NAME:=netis NX30 V2
   BUILD_SUBTARGET:=filogic
   BUILD_DEVICES:=netis_nx30v2
   UBOOT_CONFIG:=mt7981_netis_nx30v2
@@ -708,8 +756,20 @@ define U-Boot/mt7981_qihoo_360t7
   UBOOT_IMAGE:=u-boot.fip
   BL2_BOOTDEV:=spim-nand
   BL2_SOC:=mt7981
-  BL2_DDRTYPE:=ddr3
-  DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ddr3
+  BL2_DDRTYPE:=ddr3-1866
+  DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ddr3-1866
+endef
+
+define U-Boot/mt7981_qihoo_360t7-ubi
+  NAME:=Qihoo 360T7 (UBI)
+  BUILD_SUBTARGET:=filogic
+  BUILD_DEVICES:=qihoo_360t7-ubi
+  UBOOT_CONFIG:=mt7981_qihoo-360t7-ubi
+  UBOOT_IMAGE:=u-boot.fip
+  BL2_BOOTDEV:=spim-nand-ubi
+  BL2_SOC:=mt7981
+  BL2_DDRTYPE:=ddr3-1866
+  DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ubi-ddr3-1866
 endef
 
 define U-Boot/mt7981_snr_snr-cpe-ax2
@@ -717,6 +777,30 @@ define U-Boot/mt7981_snr_snr-cpe-ax2
   BUILD_SUBTARGET:=filogic
   BUILD_DEVICES:=snr_snr-cpe-ax2
   UBOOT_CONFIG:=mt7981_snr_snr-cpe-ax2
+  UBOOT_IMAGE:=u-boot.fip
+  BL2_BOOTDEV:=spim-nand
+  BL2_SOC:=mt7981
+  BL2_DDRTYPE:=ddr3
+  DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ddr3
+endef
+
+define U-Boot/mt7981_viettel_32x6
+  NAME:=Viettel 32X6
+  BUILD_SUBTARGET:=filogic
+  BUILD_DEVICES:=viettel_32x6
+  UBOOT_CONFIG:=mt7981_viettel_32x6
+  UBOOT_IMAGE:=u-boot.fip
+  BL2_BOOTDEV:=spim-nand
+  BL2_SOC:=mt7981
+  BL2_DDRTYPE:=ddr3
+  DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ddr3
+endef
+
+define U-Boot/mt7981_viettel_nr3053
+  NAME:=Viettel NR3053
+  BUILD_SUBTARGET:=filogic
+  BUILD_DEVICES:=viettel_nr3053
+  UBOOT_CONFIG:=mt7981_viettel_nr3053
   UBOOT_IMAGE:=u-boot.fip
   BL2_BOOTDEV:=spim-nand
   BL2_SOC:=mt7981
@@ -915,6 +999,18 @@ define U-Boot/mt7986_netcore_n60-pro
   BL2_SOC:=mt7986
   BL2_DDRTYPE:=ddr4
   DEPENDS:=+trusted-firmware-a-mt7986-spim-nand-ddr4
+endef
+
+define U-Boot/mt7986_ruijie_rg-x60-new-ubi
+  NAME:=Ruijie RG-X60 New (UBI)
+  BUILD_SUBTARGET:=filogic
+  BUILD_DEVICES:=ruijie_rg-x60-new-ubi
+  UBOOT_CONFIG:=mt7986_ruijie_rg-x60-new-ubi
+  UBOOT_IMAGE:=u-boot.fip
+  BL2_BOOTDEV:=spim-nand-ubi
+  BL2_SOC:=mt7986
+  BL2_DDRTYPE:=ddr3
+  DEPENDS:=+trusted-firmware-a-mt7986-spim-nand-ubi-ddr3
 endef
 
 define U-Boot/mt7986_tplink_tl-xdr4288
@@ -1321,6 +1417,9 @@ UBOOT_TARGETS := \
 	mt7981_cmcc_rax3000me-nand-ddr3 \
 	mt7981_cmcc_rax3000me-nand-ddr4 \
 	mt7981_comfast_cf-wr632ax \
+	mt7981_creatlentem_clt-r30b1-ubi \
+	mt7981_cudy_m3000-v1 \
+	mt7981_cudy_m3000-v2-yt8821 \
 	mt7981_cudy_tr3000-v1 \
 	mt7981_cudy_wbr3000uax-v1 \
 	mt7981_cudy_wr3000e-v1 \
@@ -1338,6 +1437,7 @@ UBOOT_TARGETS := \
 	mt7981_konka_komi-a31-emmc \
 	mt7981_konka_komi-a31-nor \
 	mt7981_livinet_zr-3020 \
+	mt7981_netis_eap930-v1 \
 	mt7981_netis_nx30v2 \
 	mt7981_netis_nx31 \
 	mt7981_netis_nx32u \
@@ -1351,7 +1451,10 @@ UBOOT_TARGETS := \
 	mt7981_rfb-snfi \
 	mt7981_routerich_ax3000 \
 	mt7981_qihoo_360t7 \
+	mt7981_qihoo_360t7-ubi \
 	mt7981_snr_snr-cpe-ax2 \
+	mt7981_viettel_32x6 \
+	mt7981_viettel_nr3053 \
 	mt7981_wirelesstag_zx7981pd \
 	mt7981_xiaomi_mi-router-ax3000t \
 	mt7981_xiaomi_mi-router-wr30u \
@@ -1367,6 +1470,7 @@ UBOOT_TARGETS := \
 	mt7986_mercusys_mr90x-v1 \
 	mt7986_netcore_n60 \
 	mt7986_netcore_n60-pro \
+	mt7986_ruijie_rg-x60-new-ubi \
 	mt7986_tplink_tl-xdr4288 \
 	mt7986_tplink_tl-xdr6086 \
 	mt7986_tplink_tl-xdr6088 \
